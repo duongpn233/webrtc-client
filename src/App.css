@@ -1,0 +1,18 @@
+.video-media {
+    width: 70%;
+    margin: auto;
+    margin-top: 46px;
+    opacity: 1;
+}
+.title-text {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex: 1;
+    margin-left: 24px;
+    opacity: 1;
+}
+.backgroud-media{
+    background-color: rgb(168, 166, 166);
+}
