@@ -18,7 +18,9 @@ const App = () => {
   };
   // http://localhost:8000/?publish=true
   const URL = new URLSearchParams(window.location.search).get("publish");
+  const sid = new URLSearchParams(window.location.search).get("ssid");
   console.log("url", URL);
+  console.log("sid", sid);
   if (URL) {
     isPub = true;
   } else {
@@ -26,11 +28,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    signal = new IonSFUJSONRPCSignal("ws://localhost:7000/ws");
+    signal = new IonSFUJSONRPCSignal("ws://10.3.81.154:7000/ws");
+    // signal = new IonSFUJSONRPCSignal("ws://localhost:7000/pull");
     client = new Client(signal, config);
     signal.onopen = () => {
       console.log("client join")
-      client.join("test room")
+      client.join(sid)
     };
 
     if (!isPub) {
